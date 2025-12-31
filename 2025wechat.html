@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年度聊天回忆录 - 我们的故事</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff7e5f;
+            --secondary: #feb47b;
+            --accent: #ff6b6b;
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #fff1eb 100%);
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg-gradient);
+            color: #4a4a4a;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .serif { font-family: 'Noto Serif SC', serif; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .scroll-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .keyword-bubble {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .keyword-bubble:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: white;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #ff7e5f55; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- 背景装饰 -->
+    <svg class="heart-bg" viewBox="0 0 100 100">
+        <path fill="#ff7e5f" d="M92.71,7.27C88.4,2.98,82.35,0.46,76.32,0.46c-5.1,0-10.27,1.85-14.47,5.56c-4.2-3.71-9.37-5.56-14.47-5.56 c-6.03,0-12.08,2.52-16.39,6.81C26.13,12.14,24,18.81,24,25.43c0,11.39,7.63,22.06,20.44,32.48l17.41,14.13l17.41-14.13 C92.07,47.49,99.7,36.82,99.7,25.43C99.7,18.81,97.57,12.14,92.71,7.27z"/>
+    </svg>
+
+    <!-- 首页: 标题 -->
+    <section class="scroll-section animate-fade-in max-w-4xl mx-auto">
+        <div class="text-center">
+            <h2 class="text-xl uppercase tracking-widest text-gray-400 mb-2">2025 WeChat Annual Report</h2>
+            <h1 class="serif text-5xl md:text-7xl font-bold text-gray-800 mb-4">我们的三万次呼吸</h1>
+            <p class="text-lg text-gray-500">与 <span class="text-orange-500 font-bold">老公(o^^o)</span> 的 365 天回忆录</p>
+            <div class="mt-12 text-gray-400 animate-bounce">
+                向下滚动，开启回忆 ↓
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二页: 总量 -->
+    <section class="scroll-section max-w-4xl mx-auto px-4">
+        <div class="glass p-8 md:p-12">
+            <p class="text-xl mb-6">这一年，我们一共分享了</p>
+            <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-7xl md:text-9xl font-bold text-orange-500">30,499</span>
+                <span class="text-2xl text-gray-400">条消息</span>
+            </div>
+            <p class="leading-loose text-lg text-gray-600">
+                如果平均每条信息 10 个字，这些字足以写成 <span class="underline decoration-orange-300 decoration-4">4 本长篇小说</span>。<br>
+                在 2025 年的每一天里，平均有 <span class="font-bold text-orange-400">83.5 次</span> 信号跨越城市连结我们。
+            </p>
+        </div>
+    </section>
+
+    <!-- 第三页: 关键词 -->
+    <section class="scroll-section max-w-4xl mx-auto px-4">
+        <h3 class="serif text-3xl font-bold mb-8 text-center text-gray-700">我们的 2025 关键词</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+            <div class="keyword-bubble glass px-6 py-3 text-2xl font-bold text-orange-600">宝贝 (2689次)</div>
+            <div class="keyword-bubble glass px-8 py-4 text-3xl font-bold text-red-500">吃 (2670次)</div>
+            <div class="keyword-bubble glass px-6 py-3 text-xl font-bold text-pink-500">想你 (854次)</div>
+            <div class="keyword-bubble glass px-5 py-2 text-lg text-gray-600">加班 (451次)</div>
+            <div class="keyword-bubble glass px-5 py-2 text-lg text-gray-600">实验室 (296次)</div>
+            <div class="keyword-bubble glass px-6 py-3 text-xl font-bold text-orange-400">论文 (210次)</div>
+            <div class="keyword-bubble glass px-5 py-2 text-lg text-blue-500">早安 (365次)</div>
+            <div class="keyword-bubble glass px-5 py-2 text-lg text-indigo-500">晚安 (350次)</div>
+        </div>
+        <p class="mt-12 text-center text-gray-500 leading-relaxed italic">
+            “宝贝”是每天的开场白，“吃什么”是我们的头等大事。<br>
+            在实验室和加班的间隙，每一句“想你”都是彼此的充电桩。
+        </p>
+    </section>
+
+    <!-- 第四页: 活跃时间轴 -->
+    <section class="scroll-section max-w-4xl mx-auto px-4">
+        <div class="glass p-8">
+            <h3 class="serif text-2xl font-bold mb-6">时间的刻度</h3>
+            <p class="mb-8 text-gray-600">你还记得深夜那些不愿挂断的对话吗？<br>
+                在 <span class="text-orange-500 font-bold">22:00 - 01:00</span> 之间，我们的心跳最合拍。
+            </p>
+            <div class="chart-container">
+                <canvas id="timeChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第五页: 那个特别的日子 -->
+    <section class="scroll-section max-w-4xl mx-auto px-4">
+        <div class="glass p-8 md:p-12 border-l-8 border-orange-400">
+            <h3 class="serif text-2xl font-bold mb-4">那一天，特别热闹</h3>
+            <p class="text-4xl font-bold text-orange-500 mb-2">10 月 14 日</p>
+            <p class="text-xl text-gray-600 mb-6">我们一共发了 <span class="text-orange-600 font-bold">785 条</span> 消息</p>
+            <div class="bg-white/50 p-6 rounded-xl italic text-gray-500 leading-relaxed text-lg">
+                那天的每一秒似乎都在对话框里跳动。<br>
+                无论生活多忙碌，总有一个人愿意随时随地回应你的碎碎念。
+            </div>
+        </div>
+    </section>
+
+    <!-- 结尾: 寄语 -->
+    <section class="scroll-section max-w-4xl mx-auto text-center px-4">
+        <div class="mb-12 text-6xl text-orange-500">❤</div>
+        <h2 class="serif text-4xl font-bold text-gray-800 mb-6">2025 续约成功</h2>
+        <p class="text-xl text-gray-600 mb-12 leading-loose">
+            30,499 条消息，不仅仅是字节。<br>
+            它是你的加班晚餐，是他的论文初稿，<br>
+            是无数次“我想你”的电子脉冲。<br>
+            <br>
+            <span class="font-bold text-orange-500">2026，请继续多多指教。</span>
+        </p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-orange-500 text-white px-8 py-3 rounded-full shadow-lg hover:bg-orange-600 transition">
+            重新翻阅
+        </button>
+    </section>
+
+    <script>
+        // 初始化时间分布图表
+        const ctx = document.getElementById('timeChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(255, 126, 95, 0.8)');
+        gradient.addColorStop(1, 'rgba(254, 180, 123, 0.2)');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['0h','2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h','24h'],
+                datasets: [{
+                    label: '活跃度',
+                    data: [1500, 400, 100, 50, 600, 1800, 2200, 2100, 2500, 2800, 3500, 4200, 2000],
+                    borderColor: '#ff7e5f',
+                    borderWidth: 4,
+                    pointRadius: 0,
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: gradient
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#aaa' } },
+                    y: { display: false }
+                }
+            }
+        });
+
+        // 入场动画监听
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
